@@ -1,16 +1,41 @@
+import { gql, useQuery } from "@apollo/client";
 import Image from "next/image";
 import React from "react";
+
+const GET_SPECIFIC_POKEMON = gql`
+   query pokemon($name: String!) {
+      pokemon(name: $name) {
+         id
+         order
+         types {
+            type {
+               name
+            }
+         }
+      }
+   }
+`;
+
+
+
+
 
 type Pokemon = {
    id: Number;
    url: String;
    name: String;
-   image: String;
    dreamworld: String;
 };
 
 const Card = ({ pokemon }: { pokemon: Pokemon }) => {
-   console.log(pokemon);
+   const { data, variables, error } = useQuery(GET_SPECIFIC_POKEMON, {
+      variables: {
+         name: pokemon?.name,
+      },
+   });
+
+   console.log(data);
+
    return (
       <div>
          <Image

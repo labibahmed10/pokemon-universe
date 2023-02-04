@@ -5,14 +5,13 @@ import React from "react";
 import bgImg from "../assets/Background.png";
 import Card from "./card";
 
-const GET_POKES = gql`
+const GET_POKEMONS = gql`
    query GetPokemons($limit: Int, $offset: Int) {
       pokemons(limit: $limit, offset: $offset) {
          results {
             id
             url
             name
-            image
             dreamworld
          }
       }
@@ -25,7 +24,6 @@ interface GetPokemonsData {
          id: Number;
          url: String;
          name: String;
-         image: String;
          dreamworld: String;
       }[];
    };
@@ -35,19 +33,16 @@ type Pokemon = {
    id: Number;
    url: String;
    name: String;
-   image: String;
    dreamworld: String;
 };
 
 const Banner = () => {
-   const { loading, error, data, refetch } = useQuery<GetPokemonsData>(GET_POKES, {
+   const { loading, error, data } = useQuery<GetPokemonsData>(GET_POKEMONS, {
       variables: {
          limit: 10,
          offset: 0,
       },
    });
-
-   console.log(data);
 
    if (loading) return <p>Loading...</p>;
    if (error) return <p>Error: {error?.message}...</p>;
