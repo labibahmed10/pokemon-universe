@@ -19,7 +19,7 @@ module.exports = {
             fire: "#FC7C23",
             psychic: "#F366B9",
             water: "#4592C4",
-            // gradient: "background: linear-gradient(180deg, #FC7C23 0%, #F366B9 100%);",
+            gradient: "background: linear-gradient(180deg, #FC7C23 0%, #F366B9 100%);",
          },
       },
    },
