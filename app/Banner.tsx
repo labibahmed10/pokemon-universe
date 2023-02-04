@@ -2,7 +2,7 @@
 import Logo from "@/components/Logo";
 import { useQuery, gql } from "@apollo/client";
 import React from "react";
-import bgImg from "../assets/Background.png";
+import backgroundImage from "../assets/Background.png";
 import Card from "./card";
 
 const GET_POKEMONS = gql`
@@ -50,7 +50,7 @@ const Banner = () => {
    return (
       <section
          className={`lg:h-screen bg-no-repeat w-full bg-cover bg-center relative`}
-         style={{ backgroundImage: `url(${bgImg.src})` }}
+         style={{ backgroundImage: `url(${backgroundImage.src})` }}
       >
          <Logo />
 
