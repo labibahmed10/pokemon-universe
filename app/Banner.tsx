@@ -54,7 +54,7 @@ const Banner = () => {
       >
          <Logo />
 
-         <section className="grid grid-cols-5 place-items-center gap-16 mx-60 mt-20">
+         <section className="grid grid-cols-5 place-items-center gap-14 mx-60 mt-20">
             {data?.pokemons?.results?.map((pokemon: Pokemon, i: number) => (
                <Card pokemon={pokemon} key={i}></Card>
             ))}
