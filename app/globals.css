@@ -6,6 +6,24 @@
    .button {
       @apply xl:px-3 py-[2px] px-2 rounded-md text-white;
    }
+   
+   /* 
+   .line-animation {
+   animation: name duration timing-function delay iteration-count direction fill-mode;
+   position: absolute;
+   animation: pulse 6s ease-in-out infinite;
+   } */
+
+   /* @keyframes pulse {
+      0% {
+         transform: translateY(0%);
+         height: fit-content;
+      }
+      100% {
+         transform: translateY(-100%);
+         height: fit-content;
+      }
+   } */
 
    .polygon-clip {
       clip-path: polygon(0% 0%, 100% 0%, 100% 83%, 72% 100%, 0% 100%);
