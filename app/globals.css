@@ -6,7 +6,11 @@
    .button {
       @apply xl:px-3 py-[2px] px-2 rounded-md text-white;
    }
-   
+
+   .gradient {
+      @apply bg-gradient-to-br from-[#FC7C23] to-[#F366B9];
+   }
+
    /* 
    .line-animation {
    animation: name duration timing-function delay iteration-count direction fill-mode;
@@ -26,7 +30,7 @@
    } */
 
    .polygon-clip {
-      clip-path: polygon(0% 0%, 100% 0%, 100% 83%, 72% 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 75% 100%, 0% 100%);
    }
 
    .two-color {

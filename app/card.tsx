@@ -38,7 +38,7 @@ type Type = {
 };
 
 const Card = ({ pokemon }: { pokemon: Pokemon }) => {
-   const { data, variables, error } = useQuery<GetSpecificPokemon>(GET_SPECIFIC_POKEMON, {
+   const { data, loading, error } = useQuery<GetSpecificPokemon>(GET_SPECIFIC_POKEMON, {
       variables: {
          name: pokemon?.name,
       },
