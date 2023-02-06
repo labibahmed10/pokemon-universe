@@ -1,7 +1,7 @@
 "use client";
 import Logo from "@/components/Logo";
 import { gql, useQuery } from "@apollo/client";
-import { type } from "os";
+import Image from "next/image";
 import bgImage from "../../assets/BG.png";
 
 const GET_POK_DETAILS = gql`
@@ -10,6 +10,9 @@ const GET_POK_DETAILS = gql`
          id
          height
          weight
+         sprites {
+            front_default
+         }
          abilities {
             ability {
                name
@@ -32,12 +35,13 @@ const GET_POK_DETAILS = gql`
 `;
 
 type PokemonType = {
-   id: number;
-   height: number;
-   weight: number;
+   id: Number;
+   height: Number;
+   sprites: String;
+   weight: Number;
    abilities: any;
    types: any;
-   name: string;
+   name: String;
    stats: any;
 };
 
@@ -60,7 +64,7 @@ const Page = ({ params }: { params: Params }) => {
       >
          <Logo />
 
-         <section className="mx-60 mt-20 grid grid-cols-3 gap-20">
+         <section className="mx-60 mt-20 grid grid-cols-3 place-items-center gap-20">
             <aside className="col-span-1">
                <p className="lg:text-5xl mb-4 font-medium text-blue-600 capitalize">
                   {data?.pokemon?.name} #{data?.pokemon?.id.toString().padStart(3, "0")}
@@ -92,10 +96,10 @@ const Page = ({ params }: { params: Params }) => {
                      <div className="space-y-2">
                         <p className="text-xl font-medium">Abilities</p>
                         <p className="font-medium">
-                           {data?.pokemon?.abilities?.map((ability: any) => (
-                              <p className="capitalize" key={ability?.slot}>
+                           {data?.pokemon?.abilities?.map((ability: any, i: number) => (
+                              <li className="capitalize list-none" key={i}>
                                  {ability.ability.name}
-                              </p>
+                              </li>
                            ))}
                         </p>
                      </div>
@@ -104,8 +108,16 @@ const Page = ({ params }: { params: Params }) => {
             </aside>
 
             <div>
-                
+               <Image
+                  className="mx-auto w-96 object-cover hover:scale-110 transition-all duration-500"
+                  src={data?.pokemon?.sprites?.front_default}
+                  width={1000}
+                  height={1000}
+                  alt=""
+               ></Image>
             </div>
+
+            
             <aside></aside>
          </section>
       </section>
@@ -113,3 +125,15 @@ const Page = ({ params }: { params: Params }) => {
 };
 
 export default Page;
+
+// export const getServerSideProps = async (ctx) => {
+//     const { params } = ctx;
+//     const { id } = params;
+//     // const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
+//     return {
+//        props: {
+//           data: data,
+//        },
+//     };
+//  };

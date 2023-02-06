@@ -11,8 +11,6 @@ const Universe = () => {
             backgroundImage: `url(${imageUrl.src})`,
          }}
       >
-         {/* <Image className="" src={sidebar} alt="sidebar image"></Image> */}
-
          <section>
             <div className="text-center relative flex justify-center mt-10">
                <p className="text-5xl font-bold mt-5 text-primary_blue z-50">
@@ -23,8 +21,6 @@ const Universe = () => {
 
             <Univ_blog />
          </section>
-
-         {/* <Image src={sidebar} alt="sidebar image"></Image> */}
       </section>
    );
 };
