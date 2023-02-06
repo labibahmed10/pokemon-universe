@@ -1,4 +1,5 @@
 "use client";
+import Button from "@/components/Button";
 import Logo from "@/components/Logo";
 import { gql, useQuery } from "@apollo/client";
 import Image from "next/image";
@@ -55,7 +56,9 @@ const Page = ({ params }: { params: Params }) => {
          name: params?.pokemon,
       },
    });
-   console.log(data?.pokemon);
+   //    console.log(data?.pokemon);
+
+   const singlePokemon = data?.pokemon as PokemonType;
 
    return (
       <section
@@ -67,7 +70,7 @@ const Page = ({ params }: { params: Params }) => {
          <section className="mx-60 mt-20 grid grid-cols-3 place-items-center gap-20">
             <aside className="col-span-1">
                <p className="lg:text-5xl mb-4 font-medium text-blue-600 capitalize">
-                  {data?.pokemon?.name} #{data?.pokemon?.id.toString().padStart(3, "0")}
+                  {singlePokemon?.name} #{singlePokemon?.id.toString().padStart(3, "0")}
                </p>
 
                <p className="lg:text-xl">
@@ -96,7 +99,7 @@ const Page = ({ params }: { params: Params }) => {
                      <div className="space-y-2">
                         <p className="text-xl font-medium">Abilities</p>
                         <p className="font-medium">
-                           {data?.pokemon?.abilities?.map((ability: any, i: number) => (
+                           {singlePokemon?.abilities?.map((ability: any, i: number) => (
                               <li className="capitalize list-none" key={i}>
                                  {ability.ability.name}
                               </li>
@@ -117,23 +120,20 @@ const Page = ({ params }: { params: Params }) => {
                ></Image>
             </div>
 
-            
-            <aside></aside>
+            <aside>
+               <div className="space-y-4">
+                  <p className="text-xl font-semibold">Type</p>
+                  <div className="2xl:space-x-5 space-x-3">
+                     {singlePokemon?.types?.map((type: any, i: number) => {
+                        console.log(type?.type);
+                        return <Button key={i} type={type?.type} />;
+                     })}
+                  </div>
+               </div>
+            </aside>
          </section>
       </section>
    );
 };
 
 export default Page;
-
-// export const getServerSideProps = async (ctx) => {
-//     const { params } = ctx;
-//     const { id } = params;
-//     // const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-
-//     return {
-//        props: {
-//           data: data,
-//        },
-//     };
-//  };
