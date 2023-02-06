@@ -66,42 +66,41 @@ const Page = ({ params }: { params: Params }) => {
 
    return (
       <section
-         className="bg-cover bg-no-repeat w-full"
+         className="bg-cover bg-no-repeat h-1 lg:h-screen w-full"
          style={{ backgroundImage: `url(${bgImage.src})` }}
       >
          <Logo />
 
-         <section className="mx-60 mt-16 grid grid-cols-3 place-items-center gap-20">
-            <aside className="col-span-1">
-               <p className="lg:text-5xl mb-4 font-medium text-blue-600 capitalize">
+         <section className="lg:mx-60 mx-8 mt-10 grid lg:grid-cols-3 grid-cols-1 place-items-center gap-5 lg:gap-20">
+            <aside className="order-2 lg:order-1">
+               <p className="lg:text-5xl text-xl mb-4 font-semibold text-blue-600 capitalize">
                   {singlePokemon?.name} #{singlePokemon?.id.toString().padStart(3, "0")}
                </p>
 
-               <p className="lg:text-xl">
+               <p className="lg:text-xl font-medium">
                   There is a plant seed on its back right from the day this Pokémon is
                   born. The seed slowly grows larger.
                </p>
 
                <div className="rounded-lg p-1 mt-10 gradient polygon-clip">
                   <div className="grid grid-cols-2 gap-10 bg-white rounded-lg p-10 polygon-clip">
-                     {/*  */}
                      <div className="space-y-3">
-                        <p className="text-xl font-medium">Height</p>
+                        <p className="text-xl font-semibold">Height</p>
                         <p className="font-medium">{data?.pokemon?.height}</p>
                      </div>
 
                      <div className="space-y-3">
-                        <p className="text-xl font-medium">Category</p>
+                        <p className="text-xl font-semibold">Category</p>
                         <p className="font-medium">Seed</p>
                      </div>
 
                      <div className="space-y-3">
-                        <p className="text-xl font-medium">Weight</p>
+                        <p className="text-xl font-semibold">Weight</p>
                         <p className="font-medium">{data?.pokemon?.weight} lbs</p>
                      </div>
 
                      <div className="space-y-2">
-                        <p className="text-xl font-medium">Abilities</p>
+                        <p className="text-xl font-semibold">Abilities</p>
                         <p className="font-medium">
                            {singlePokemon?.abilities?.map((ability: any, i: number) => (
                               <li className="capitalize list-none" key={i}>
@@ -114,7 +113,7 @@ const Page = ({ params }: { params: Params }) => {
                </div>
             </aside>
 
-            <div>
+            <div className="order-1 lg:order-2">
                <Image
                   className="mx-auto w-96 object-cover hover:scale-110 transition-all duration-500"
                   src={data?.pokemon?.sprites?.front_default}
@@ -124,7 +123,7 @@ const Page = ({ params }: { params: Params }) => {
                ></Image>
             </div>
 
-            <aside>
+            <aside className="w-full lg:p-10 order-3 mt-5 lg:mt-0">
                <div className="space-y-3">
                   <p className="text-xl font-semibold">Type</p>
                   <div className="2xl:space-x-5 space-x-3">
@@ -134,7 +133,7 @@ const Page = ({ params }: { params: Params }) => {
                   </div>
                </div>
 
-               <div className="space-y-3 mt-5">
+               <div className="space-y-3 mt-3">
                   <p className="text-xl font-semibold">Weaknesses</p>
                   <div className="2xl:space-x-5 space-x-3">
                      {weakness?.map((data: any) => {
@@ -166,7 +165,6 @@ const Page = ({ params }: { params: Params }) => {
                            <Progress
                               className="w-full bg-gray-400 rounded-lg"
                               value={stat?.base_stat}
-                              //   variant="gradient"
                            ></Progress>
                         </>
                      ))}
@@ -175,13 +173,15 @@ const Page = ({ params }: { params: Params }) => {
             </aside>
          </section>
 
-         <div className="mx-auto w-72 text-center pt-10">
+         <div className="mx-auto lg:w-72 w-48 text-center py-10 lg:py-0 lg:pt-10">
             <Link
                href={"/"}
-               className="bg-[#FFCB05] flex justify-center gap-4 py-3 border-primary_blue border-4"
+               className="bg-[#FFCB05] flex justify-center gap-4 lg:py-3 py-2 border-primary_blue lg:border-4 border-2"
             >
-               <Image src={home} alt="i" />
-               <p className="text-xl font-medium text-white">Back to Homepage</p>
+               <Image src={home} alt="logo image" />
+               <p className="lg:text-xl text-sm font-medium text-white">
+                  Back to Homepage
+               </p>
             </Link>
          </div>
       </section>

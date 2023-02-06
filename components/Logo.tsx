@@ -4,11 +4,15 @@ import logo from "../assets/Logo.png";
 
 const Logo = () => {
    return (
-      <Image
-         className="lg:mx-auto lg:pt-16 scale-100"
-         alt="logo image"
-         src={logo}
-      ></Image>
+      <div className="flex justify-center items-center pt-20">
+         <Image
+            className=" lg:scale-100"
+            alt="logo image"
+            width={200}
+            height={200}
+            src={logo}
+         ></Image>
+      </div>
    );
 };
 
