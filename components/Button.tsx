@@ -4,13 +4,9 @@ type Type = {
 };
 
 const Button = ({ type }: { type: Type }) => {
-   // console.log(type?.name);
+   const color = String(type?.name);
    if (type?.name !== "flying") {
-      return (
-         <button className={`capitalize button bg-${type?.name} bg-bug`}>
-            {type?.name}
-         </button>
-      );
+      return <button className={`capitalize button bg-${color}`}>{type?.name}</button>;
    } else return <button className={`capitalize two-color button`}>{type?.name}</button>;
 };
 

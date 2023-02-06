@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/Button";
 import Logo from "@/components/Logo";
+import { useTypes } from "@/extraQuery/getTypes";
 import { gql, useQuery } from "@apollo/client";
 import Image from "next/image";
 import bgImage from "../../assets/BG.png";
@@ -56,9 +57,10 @@ const Page = ({ params }: { params: Params }) => {
          name: params?.pokemon,
       },
    });
-   //    console.log(data?.pokemon);
-
+   console.log(data?.pokemon);
    const singlePokemon = data?.pokemon as PokemonType;
+   const weakness = useTypes(singlePokemon?.types);
+   //    console.log(result);
 
    return (
       <section
@@ -124,12 +126,34 @@ const Page = ({ params }: { params: Params }) => {
                <div className="space-y-4">
                   <p className="text-xl font-semibold">Type</p>
                   <div className="2xl:space-x-5 space-x-3">
-                     {singlePokemon?.types?.map((type: any, i: number) => {
-                        console.log(type?.type);
-                        return <Button key={i} type={type?.type} />;
+                     {singlePokemon?.types?.map((type: any, i: number) => (
+                        <Button key={i} type={type?.type} />
+                     ))}
+                  </div>
+               </div>
+
+               <div className="space-y-4 mt-5">
+                  <p className="text-xl font-semibold">Weaknesses</p>
+                  <div className="2xl:space-x-5 space-x-3">
+                     {weakness?.map((data: any) => {
+                        console.log(data);
+                        return data?.name !== "flying" ? (
+                           <button
+                              key={data?.name}
+                              className={`bg-${data?.name} btn capitalize`}
+                           >
+                              {data?.name}
+                           </button>
+                        ) : (
+                           <button className={`capitalize two-color button`}>
+                              {data?.name}
+                           </button>
+                        );
                      })}
                   </div>
                </div>
+
+             
             </aside>
          </section>
       </section>
