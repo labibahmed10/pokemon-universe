@@ -10,7 +10,7 @@ const GET_TYPES = gql`
    }
 `;
 
-export const useTypes = (currentType: any) => {
+export const useTypes = () => {
    const { loading, data } = useQuery(GET_TYPES);
    return data?.types?.results.slice(0, 3);
    //   const types = data?.types?.results as any;

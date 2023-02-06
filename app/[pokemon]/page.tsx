@@ -5,7 +5,9 @@ import { useTypes } from "@/extraQuery/getTypes";
 import { gql, useQuery } from "@apollo/client";
 import { Progress } from "@material-tailwind/react";
 import Image from "next/image";
+import Link from "next/link";
 import bgImage from "../../assets/BG.png";
+import home from "../../assets/Vector.png";
 
 const GET_POK_DETAILS = gql`
    query ($name: String!) {
@@ -58,19 +60,18 @@ const Page = ({ params }: { params: Params }) => {
          name: params?.pokemon,
       },
    });
-   console.log(data?.pokemon);
+
    const singlePokemon = data?.pokemon as PokemonType;
-   const weakness = useTypes(singlePokemon?.types);
-   //    console.log(result);
+   const weakness = useTypes();
 
    return (
       <section
-         className="bg-cover bg-no-repeat h-screen w-full"
+         className="bg-cover bg-no-repeat w-full"
          style={{ backgroundImage: `url(${bgImage.src})` }}
       >
          <Logo />
 
-         <section className="mx-60 mt-20 grid grid-cols-3 place-items-center gap-20">
+         <section className="mx-60 mt-16 grid grid-cols-3 place-items-center gap-20">
             <aside className="col-span-1">
                <p className="lg:text-5xl mb-4 font-medium text-blue-600 capitalize">
                   {singlePokemon?.name} #{singlePokemon?.id.toString().padStart(3, "0")}
@@ -124,7 +125,7 @@ const Page = ({ params }: { params: Params }) => {
             </div>
 
             <aside>
-               <div className="space-y-4">
+               <div className="space-y-3">
                   <p className="text-xl font-semibold">Type</p>
                   <div className="2xl:space-x-5 space-x-3">
                      {singlePokemon?.types?.map((type: any, i: number) => (
@@ -133,7 +134,7 @@ const Page = ({ params }: { params: Params }) => {
                   </div>
                </div>
 
-               <div className="space-y-4 mt-5">
+               <div className="space-y-3 mt-5">
                   <p className="text-xl font-semibold">Weaknesses</p>
                   <div className="2xl:space-x-5 space-x-3">
                      {weakness?.map((data: any) => {
@@ -154,7 +155,7 @@ const Page = ({ params }: { params: Params }) => {
                   </div>
                </div>
 
-               <div className="space-y-4 mt-5">
+               <div className="space-y-3 mt-5">
                   <p className="text-xl font-semibold">Stats</p>
 
                   <div className="capitalize space-y-3 w-full">
@@ -173,6 +174,16 @@ const Page = ({ params }: { params: Params }) => {
                </div>
             </aside>
          </section>
+
+         <div className="mx-auto w-72 text-center pt-10">
+            <Link
+               href={"/"}
+               className="bg-[#FFCB05] flex justify-center gap-4 py-3 border-primary_blue border-4"
+            >
+               <Image src={home} alt="i" />
+               <p className="text-xl font-medium text-white">Back to Homepage</p>
+            </Link>
+         </div>
       </section>
    );
 };
