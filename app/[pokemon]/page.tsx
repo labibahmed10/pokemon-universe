@@ -3,6 +3,7 @@ import Button from "@/components/Button";
 import Logo from "@/components/Logo";
 import { useTypes } from "@/extraQuery/getTypes";
 import { gql, useQuery } from "@apollo/client";
+import { Progress } from "@material-tailwind/react";
 import Image from "next/image";
 import bgImage from "../../assets/BG.png";
 
@@ -153,7 +154,23 @@ const Page = ({ params }: { params: Params }) => {
                   </div>
                </div>
 
-             
+               <div className="space-y-4 mt-5">
+                  <p className="text-xl font-semibold">Stats</p>
+
+                  <div className="capitalize space-y-3 w-full">
+                     {singlePokemon?.stats?.map((stat: any) => (
+                        <>
+                           {console.log(stat)}
+                           <p>{stat?.stat?.name}</p>
+                           <Progress
+                              className="w-full bg-gray-400 rounded-lg"
+                              value={stat?.base_stat}
+                              //   variant="gradient"
+                           ></Progress>
+                        </>
+                     ))}
+                  </div>
+               </div>
             </aside>
          </section>
       </section>

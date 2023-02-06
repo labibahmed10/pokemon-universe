@@ -2,6 +2,8 @@
 
 import "./globals.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+// @material-tailwind/react
+import { ThemeProvider } from "@material-tailwind/react";
 
 const client = new ApolloClient({
    uri: "https://graphql-pokeapi.graphcdn.app/",
@@ -13,7 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en">
          <head />
          <body>
-            <ApolloProvider client={client}>{children}</ApolloProvider>
+            <ThemeProvider>
+               <ApolloProvider client={client}>{children}</ApolloProvider>
+            </ThemeProvider>
          </body>
       </html>
    );
