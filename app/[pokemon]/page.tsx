@@ -136,19 +136,16 @@ const Page = ({ params }: { params: Params }) => {
                <div className="space-y-3 mt-3">
                   <p className="text-xl font-semibold">Weaknesses</p>
                   <div className="2xl:space-x-5 space-x-2">
-                     {weakness?.map((data: any) =>
+                     {weakness?.map((data: any, i: number) =>
                         data?.name !== "flying" ? (
                            <button
-                              key={data?.name}
+                              key={i}
                               className={`bg-${data?.name} button capitalize`}
                            >
                               {data?.name}
                            </button>
                         ) : (
-                           <button
-                              key={data?.name}
-                              className={`capitalize two-color button`}
-                           >
+                           <button key={i} className={`capitalize two-color button`}>
                               {data?.name}
                            </button>
                         ),
@@ -160,14 +157,14 @@ const Page = ({ params }: { params: Params }) => {
                   <p className="text-xl font-semibold">Stats</p>
 
                   <div className="capitalize space-y-3 w-full">
-                     {singlePokemon?.stats?.map((stat: any) => (
-                        <>
+                     {singlePokemon?.stats?.map((stat: any, i: number) => (
+                        <div key={i}>
                            <p>{stat?.stat?.name}</p>
                            <Progress
                               className="w-full bg-gray-400 rounded-lg"
                               value={stat?.base_stat}
                            ></Progress>
-                        </>
+                        </div>
                      ))}
                   </div>
                </div>
