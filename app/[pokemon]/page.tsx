@@ -117,8 +117,8 @@ const Page = ({ params }: { params: Params }) => {
                <Image
                   className="mx-auto w-96 object-cover hover:scale-110 transition-all duration-500"
                   src={data?.pokemon?.sprites?.front_default}
-                  width={1000}
-                  height={1000}
+                  width={200}
+                  height={200}
                   alt=""
                ></Image>
             </div>
@@ -145,7 +145,10 @@ const Page = ({ params }: { params: Params }) => {
                               {data?.name}
                            </button>
                         ) : (
-                           <button className={`capitalize two-color button`}>
+                           <button
+                              key={data?.name}
+                              className={`capitalize two-color button`}
+                           >
                               {data?.name}
                            </button>
                         ),
