@@ -2,7 +2,6 @@
 
 import "./globals.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-// @material-tailwind/react
 import { ThemeProvider } from "@material-tailwind/react";
 
 const client = new ApolloClient({

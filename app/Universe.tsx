@@ -1,3 +1,5 @@
+"use client";
+
 import Univ_blog from "./univ_blog";
 import brush from "../assets/Brush.png";
 import Image from "next/image";

@@ -1,4 +1,5 @@
 "use client";
+
 import Logo from "@/components/Logo";
 import seeWidth from "@/extraQuery/seeWidth";
 import { useQuery, gql } from "@apollo/client";
