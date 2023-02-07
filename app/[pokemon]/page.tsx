@@ -6,7 +6,7 @@ import { gql, useQuery } from "@apollo/client";
 import { Progress } from "@material-tailwind/react";
 import Image from "next/image";
 import Link from "next/link";
-import bgImage from "../../assets/BG.png";
+import bgImage from "../../assets/back.png";
 import home from "../../assets/Vector.png";
 
 const GET_POK_DETAILS = gql`
@@ -136,9 +136,8 @@ const Page = ({ params }: { params: Params }) => {
                <div className="space-y-3 mt-3">
                   <p className="text-xl font-semibold">Weaknesses</p>
                   <div className="2xl:space-x-5 space-x-2">
-                     {weakness?.map((data: any) => {
-                        console.log(data);
-                        return data?.name !== "flying" ? (
+                     {weakness?.map((data: any) =>
+                        data?.name !== "flying" ? (
                            <button
                               key={data?.name}
                               className={`bg-${data?.name} button capitalize`}
@@ -149,8 +148,8 @@ const Page = ({ params }: { params: Params }) => {
                            <button className={`capitalize two-color button`}>
                               {data?.name}
                            </button>
-                        );
-                     })}
+                        ),
+                     )}
                   </div>
                </div>
 
@@ -160,7 +159,6 @@ const Page = ({ params }: { params: Params }) => {
                   <div className="capitalize space-y-3 w-full">
                      {singlePokemon?.stats?.map((stat: any) => (
                         <>
-                           {console.log(stat)}
                            <p>{stat?.stat?.name}</p>
                            <Progress
                               className="w-full bg-gray-400 rounded-lg"

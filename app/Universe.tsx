@@ -3,7 +3,7 @@
 import Univ_blog from "./univ_blog";
 import brush from "../assets/Brush.png";
 import Image from "next/image";
-import imageUrl from "../assets/bg.png";
+import imageUrl from "../assets/back.png";
 
 const Universe = () => {
    return (
