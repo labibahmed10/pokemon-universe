@@ -1,5 +1,5 @@
-import Banner from "./banner";
-import Universe from "./universe";
+import Banner from "./Banner";
+import Universe from "./Universe";
 
 export default function Home() {
    return (
