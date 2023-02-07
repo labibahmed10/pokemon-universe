@@ -135,13 +135,13 @@ const Page = ({ params }: { params: Params }) => {
 
                <div className="space-y-3 mt-3">
                   <p className="text-xl font-semibold">Weaknesses</p>
-                  <div className="2xl:space-x-5 space-x-3">
+                  <div className="2xl:space-x-5 space-x-2">
                      {weakness?.map((data: any) => {
                         console.log(data);
                         return data?.name !== "flying" ? (
                            <button
                               key={data?.name}
-                              className={`bg-${data?.name} btn capitalize`}
+                              className={`bg-${data?.name} button capitalize`}
                            >
                               {data?.name}
                            </button>
@@ -176,7 +176,7 @@ const Page = ({ params }: { params: Params }) => {
          <div className="mx-auto lg:w-72 w-48 text-center py-10 lg:py-0 lg:pt-10">
             <Link
                href={"/"}
-               className="bg-[#FFCB05] flex justify-center gap-4 lg:py-3 py-2 border-primary_blue lg:border-4 border-2"
+               className="bg-primary_yellow flex justify-center gap-4 lg:py-3 py-2 border-primary_blue lg:border-4 border-2"
             >
                <Image src={home} alt="logo image" />
                <p className="lg:text-xl text-sm font-medium text-white">

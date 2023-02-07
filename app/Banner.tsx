@@ -57,7 +57,7 @@ const Banner = () => {
       >
          <Logo />
 
-         <section className="grid lg:grid-cols-5 place-items-center lg:gap-14 lg:mx-60 lg:mt-20">
+         <section className="grid lg:grid-cols-5 place-items-center lg:gap-14 lg:mx-60 lg:mt-16">
             {state ? (
                <MobileView results={data?.pokemons?.results} />
             ) : (

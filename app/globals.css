@@ -1,9 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&family=Cookie&family=EB+Garamond:wght@600&family=Inter:wght@500&family=Lobster+Two:ital@1&family=Lora:ital@1&family=Merriweather:wght@700&family=Oxygen&family=Poppins:wght@600&family=Raleway:wght@500&family=Ubuntu&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import "swiper/css";
 @import "swiper/css/pagination";
+
+@layer base {
+   * {
+      font-family: "Ubuntu", sans-serif;
+   }
+}
 
 @layer utilities {
    .button {
@@ -13,24 +21,6 @@
    .gradient {
       @apply bg-gradient-to-br from-[#FC7C23] to-[#F366B9];
    }
-
-   /* 
-   .line-animation {
-   animation: name duration timing-function delay iteration-count direction fill-mode;
-   position: absolute;
-   animation: pulse 6s ease-in-out infinite;
-   } */
-
-   /* @keyframes pulse {
-      0% {
-         transform: translateY(0%);
-         height: fit-content;
-      }
-      100% {
-         transform: translateY(-100%);
-         height: fit-content;
-      }
-   } */
 
    .polygon-clip {
       clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 75% 100%, 0% 100%);

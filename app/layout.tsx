@@ -12,7 +12,7 @@ const client = new ApolloClient({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
    return (
-      <html lang="en">
+      <html lang="en" className="">
          <head />
          <body>
             <ThemeProvider>
