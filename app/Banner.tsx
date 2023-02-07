@@ -2,8 +2,7 @@
 import Logo from "@/components/Logo";
 import seeWidth from "@/extraQuery/seeWidth";
 import { useQuery, gql } from "@apollo/client";
-import React, { useEffect } from "react";
-
+import React from "react";
 import backgroundImage from "../assets/Background.png";
 import Card from "./card";
 import MobileView from "./mobileview";
@@ -40,15 +39,13 @@ type Pokemon = {
 };
 
 const Banner = () => {
+   const state = seeWidth();
    const { loading, error, data } = useQuery<GetPokemonsData>(GET_POKEMONS, {
       variables: {
          limit: 10,
          offset: 0,
       },
    });
-   const state = seeWidth();
-
-   console.log(state);
 
    if (loading) return <p>Loading...</p>;
    if (error) return <p>Error: {error?.message}...</p>;

@@ -13,10 +13,10 @@ const Universe = () => {
       >
          <section>
             <div className="text-center relative flex justify-center mt-10">
-               <p className="text-5xl font-bold mt-5 text-primary_blue z-50">
+               <p className="lg:text-5xl text-3xl font-bold lg:mt-5 text-primary_blue z-50">
                   Ash & Pikachu Arrive in <br /> Pokémon Universe
                </p>
-               <Image className="absolute" src={brush} alt=""></Image>
+               <Image className="absolute w-72 lg:w-1/3" src={brush} alt=""></Image>
             </div>
 
             <Univ_blog />
