@@ -48,13 +48,15 @@ const Banner = () => {
       },
    });
 
+   const background = "https://i.postimg.cc/8CNxXp83/Background.png";
+
    if (loading) return <p>Loading...</p>;
    if (error) return <p>Error: {error?.message}...</p>;
 
    return (
       <section
          className={`lg:h-screen bg-no-repeat w-full bg-cover bg-center relative`}
-         style={{ backgroundImage: `url(${backgroundImage.src})` }}
+         style={{ backgroundImage: `url(${background})` }}
       >
          <Logo />
 
