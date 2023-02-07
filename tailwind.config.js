@@ -27,7 +27,6 @@ module.exports = withMT({
             dark: "#47382d",
             fairy: "#36B0DB",
             electric: "#FFC926",
-            water: "#6BCFEB",
             ground: "#744E33",
             dragon: "#DAF16F",
             steel: "#11436C",
