@@ -6,7 +6,7 @@ import imageUrl from "../assets/bg.png";
 const Universe = () => {
    return (
       <section
-         className={`flex bg-contain bg-no-repeat`}
+         className={`flex bg-contain bg-no-repeat w-full`}
          style={{
             backgroundImage: `url(${imageUrl.src})`,
          }}

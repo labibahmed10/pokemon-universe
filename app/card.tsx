@@ -50,12 +50,12 @@ const Card = ({ pokemon }: { pokemon: Pokemon }) => {
             pathname: `/${pokemon.name}`,
          }}
       >
-         <div className="lg:w-[220px] lg:h-auto bg-white p-3 rounded-md hover:bg-water cursor-pointer group polygon-clip">
+         <div className="lg:w-[220px] lg:h-auto h-full bg-white p-3 rounded-md hover:bg-water cursor-pointer group polygon-clip">
             <div className="bg-[#f2f2f2] p-8 group-hover:bg-white rounded-lg relative">
                <Image
                   className="lg:w-[155px] lg:h-[155px] mx-auto group-hover:scale-110 transition-all duration-500"
-                  width={100}
-                  height={100}
+                  width={200}
+                  height={200}
                   alt="image of"
                   src={pokemon?.dreamworld as string}
                ></Image>

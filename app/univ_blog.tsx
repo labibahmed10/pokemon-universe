@@ -8,7 +8,7 @@ import img5 from "../assets/Image05.png";
 
 const Univ_blog = () => {
    return (
-      <section className="grid grid-cols-7 text-justify gap-5 mx-60 my-20 font-semibold leading-5">
+      <section className="grid grid-cols-7 text-justify gap-5 lg:mx-60 my-20 font-semibold leading-5">
          <p className="col-span-3">
             Lorem ipsum dolor sit amet consectetur. Risus cursus nibh elementum ornare a
             aliquet ac. Feugiat scelerisque ultrices tempor facilisi tempus risus nunc.

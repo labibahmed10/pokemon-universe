@@ -1,9 +1,12 @@
 "use client";
 import Logo from "@/components/Logo";
+import seeWidth from "@/extraQuery/seeWidth";
 import { useQuery, gql } from "@apollo/client";
-import React from "react";
+import React, { useEffect } from "react";
+
 import backgroundImage from "../assets/Background.png";
 import Card from "./card";
+import MobileView from "./mobileview";
 
 const GET_POKEMONS = gql`
    query GetPokemons($limit: Int, $offset: Int) {
@@ -43,6 +46,9 @@ const Banner = () => {
          offset: 0,
       },
    });
+   const state = seeWidth();
+
+   console.log(state);
 
    if (loading) return <p>Loading...</p>;
    if (error) return <p>Error: {error?.message}...</p>;
@@ -54,10 +60,14 @@ const Banner = () => {
       >
          <Logo />
 
-         <section className="grid grid-cols-5 place-items-center gap-14 mx-60 mt-20">
-            {data?.pokemons?.results?.map((pokemon: Pokemon, i: number) => (
-               <Card pokemon={pokemon} key={i}></Card>
-            ))}
+         <section className="grid lg:grid-cols-5 place-items-center lg:gap-14 lg:mx-60 lg:mt-20">
+            {state ? (
+               <MobileView results={data?.pokemons?.results} />
+            ) : (
+               data?.pokemons?.results?.map((pokemon: Pokemon, i: number) => (
+                  <Card pokemon={pokemon} key={i}></Card>
+               ))
+            )}
          </section>
       </section>
    );
